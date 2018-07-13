@@ -2,15 +2,9 @@
     <div class="movie-list">
         <p class="classify-title">正在上映的电影-北京</p>
         <scroll-view :scroll-x="true">
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
-            <boardItem></boardItem>
+            <div class="scroll-wrap">
+                <boardItem v-for="(movie, index) in movieList" :key="index" :initData="movie"></boardItem>
+            </div>
         </scroll-view>
     </div>
 </template>
@@ -20,6 +14,24 @@
     export default {
         components: {
             boardItem
+        },
+        data () {
+            return {
+                init: 'initData'
+            }
+        },
+        methods: {
+            // initData (index) {
+            //     if (index == 2 || index == 5) {
+            //         return this.$props[index].subject
+            //     } else {
+            //         return this.$props[index]
+            //     }
+            // }
+        },
+        props: ['movieList'],
+        computed: {
+            
         }
     }
 </script>
@@ -34,8 +46,11 @@
         padding: 20rpx;
         display: flex;
         flex-direction: column;
+
     }
     .scroll-wrap {
+        width: 1800rpx;
+        /* overflow: hidden; */
         background: #fff;
         display: flex;
         flex-direction: row;

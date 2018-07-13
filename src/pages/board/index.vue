@@ -5,8 +5,9 @@
                 <image mode="aspectFill" :src="imgUrl.images.small" />
             </swiper-item>
         </swiper>
+        <!-- <div v-for="(value, key, index) in initData">{{ key }}: {{  value }}</div> -->
         <div class="board">
-            <scrollList></scrollList>
+            <scrollList v-for="(item, index) in initData" :key="index" :movieList="item"></scrollList>
         </div>
     </div>
   

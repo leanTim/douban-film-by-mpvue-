@@ -1,13 +1,17 @@
 <template>
-    <div class="movie-item">
-        <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2519070834.jpg" alt="">
-        <p>我不是药神</p>
+    <div v-if="!initData.subject" class="movie-item">   
+        <img  :src="initData.images.large" alt="">
+        <p>{{ initData.title }}</p>
+    </div>
+    <div v-else class="movie-item">   
+        <img  :src="initData.subject.images.large" alt="">
+        <p>{{ initData.subject.title }}</p>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props: ['initData']
     }
 </script>
 

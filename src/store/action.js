@@ -61,14 +61,16 @@ export default {
         fly.all([in_theaters(), coming_soon(), weekly(), new_movies(), top250(), us_box()])
         .then(fly.spread(function (in_theaters, coming_soon, weekly, new_movies, top250, us_box) {
             Array.prototype.map.call(arguments, function (data, index) {
-                state.initData[state.sorts[index].key] = data.data.subjects
-
+               
+                    state.initData[state.sorts[index].key] = data.data.subjects
+                
                 if (index === 0) {
                     state.swiperImgList = data.data.subjects.slice(0, 6)
                 }
 
+
                 // state.swiperImgList = 
-                console.log(data)
+                console.log(state.initData)
                 // console.log(state.sorts[index].key)   
             })
 
