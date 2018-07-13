@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 const state = {
     initData : {}, //board页面轮播
+    swiperImgList: [],
     sorts: [
             { key: 'in_theaters' },
             { key: 'coming_soon' },
